@@ -35,7 +35,6 @@ typename std::enable_if<std::is_same<T, bool>::value>::type CopyVecotorToTensor(
   // at the same time, we can not use vector<bool> to hold the value, because
   // the c++ use bit value to replace byte value.
   auto values = ctx.Attr<std::vector<int>>(value_name);
-  framework::TensorFromVector(values, ctx.device_context(), out);
 
   // use the array to replace to vector
   bool* array_ptr = new T[values.size()];
